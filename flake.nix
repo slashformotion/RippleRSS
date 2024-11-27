@@ -2,7 +2,7 @@
   description = "";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
+    nixpkgs.url = "github:NixOS/nixpkgs/master";
   };
 
   outputs = {
@@ -22,6 +22,8 @@
         # nativeBuildInputs is usually what you want -- tools you need to run
         nativeBuildInputs = with pkgs; [
           gnumake
+          sleek
+          sqlitebrowser
 
           # go development
           go
@@ -33,6 +35,8 @@
           goose
           sqlite
           sqlite-utils
+
+          entr
         ];
       };
     });

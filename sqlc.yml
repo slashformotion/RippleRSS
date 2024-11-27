@@ -7,3 +7,4 @@ sql:
       go:
         package: "query"
         out: "db/query"
+        emit_pointers_for_null_types: false

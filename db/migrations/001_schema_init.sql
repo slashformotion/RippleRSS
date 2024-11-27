@@ -1,17 +1,15 @@
 -- +goose Up
+-- +goose StatementBegin
 CREATE TABLE feed (
     id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
-    title text DEFAULT "" NOT NULL,
-    description text DEFAULT "" NOT NULL,
+    title text NOT NULL,
+    description text NOT NULL,
     link text DEFAULT "",
-    feed_link text DEFAULT "" NOT NULL,
-    updated text DEFAULT "" NOT NULL,
+    feed_link text DEFAULT NOT NULL,
     updated_parsed text,
     image_id integer UNIQUE,
     guid text NOT NULL,
-    FOREIGN KEY (image_id) REFERENCES image(id) ON DELETE
-    SET
-        NULL
+    FOREIGN KEY (image_id) REFERENCES image (id) ON DELETE SET NULL
 );
 
 CREATE TABLE person (
@@ -34,18 +32,18 @@ CREATE TABLE item (
     published_parsed text,
     image_id integer UNIQUE,
     guid text NOT NULL,
-    FOREIGN KEY (image_id) REFERENCES image(id) ON DELETE
-    SET
-        NULL
+    FOREIGN KEY (image_id) REFERENCES image(id) ON DELETE SET NULL
 );
 
 CREATE TABLE image (
     id integer PRIMARY KEY AUTOINCREMENT NOT NULL,
     url text NOT NULL,
-    title text,
+    title text
 );
+-- +goose StatementEnd
 
 -- +goose Down
+-- +goose StatementBegin
 DROP TABLE feed;
 
 DROP TABLE person;
@@ -53,3 +51,4 @@ DROP TABLE person;
 DROP TABLE image;
 
 DROP TABLE item;
+-- +goose StatementEnd

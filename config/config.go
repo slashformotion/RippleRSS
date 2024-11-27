@@ -13,9 +13,11 @@ type Config struct {
 
 	// RSS option
 	RefreshInterval time.Duration `env:"RIPPLERSS_DEFAULT_REFRESH_INTERVAL"  envDefault:"10s"`
+
+	// DB
+	DbPath string `env:"RIPPLERSS_DB_PATH"  envDefault:"./db.db"`
 }
 
 func LoadFromEnvVariables() (Config, error) {
-	cfg, err := env.ParseAs[Config]()
-	return cfg, err
+	return env.ParseAs[Config]()
 }
