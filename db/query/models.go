@@ -4,11 +4,45 @@
 
 package query
 
+import (
+	"database/sql"
+)
+
 type Feed struct {
-	ID          int64
-	Title       interface{}
-	Description interface{}
-	Link        interface{}
-	FeedLink    interface{}
-	Updated     interface{}
+	ID            int64
+	Title         string
+	Description   string
+	Link          sql.NullString
+	FeedLink      string
+	Updated       string
+	UpdatedParsed sql.NullString
+	ImageID       sql.NullInt64
+	Guid          string
+}
+
+type Image struct {
+	ID    int64
+	Url   string
+	Title sql.NullString
+}
+
+type Item struct {
+	ID              int64
+	Title           string
+	Description     string
+	Link            sql.NullString
+	FeedLink        string
+	Updated         string
+	UpdatedParsed   sql.NullString
+	Published       string
+	PublishedParsed sql.NullString
+	ImageID         sql.NullInt64
+	Guid            string
+}
+
+type Person struct {
+	ID     int64
+	Name   string
+	Email  sql.NullString
+	FeedID sql.NullInt64
 }

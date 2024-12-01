@@ -1,11 +1,11 @@
 -- +goose Up
 CREATE TABLE feed (
     id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
-    title text DEFAULT "" NOT NULL,
-    description text DEFAULT "" NOT NULL,
-    link text DEFAULT "",
-    feed_link text DEFAULT "" NOT NULL,
-    updated text DEFAULT "" NOT NULL,
+    title text  NOT NULL,
+    description text  NOT NULL,
+    link text,
+    feed_link text  NOT NULL,
+    updated text  NOT NULL,
     updated_parsed text,
     image_id integer UNIQUE,
     guid text NOT NULL,
@@ -24,13 +24,13 @@ CREATE TABLE person (
 
 CREATE TABLE item (
     id integer PRIMARY KEY AUTOINCREMENT NOT NULL,
-    title text DEFAULT "" NOT NULL,
-    description text DEFAULT "" NOT NULL,
-    link text DEFAULT "",
-    feed_link text DEFAULT "" NOT NULL,
-    updated text DEFAULT "" NOT NULL,
+    title text  NOT NULL,
+    description text  NOT NULL,
+    link text ,
+    feed_link text  NOT NULL,
+    updated text  NOT NULL,
     updated_parsed text,
-    published text DEFAULT "" NOT NULL,
+    published text  NOT NULL,
     published_parsed text,
     image_id integer UNIQUE,
     guid text NOT NULL,
@@ -42,7 +42,7 @@ CREATE TABLE item (
 CREATE TABLE image (
     id integer PRIMARY KEY AUTOINCREMENT NOT NULL,
     url text NOT NULL,
-    title text,
+    title text
 );
 
 -- +goose Down
