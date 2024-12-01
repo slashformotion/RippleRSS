@@ -54,8 +54,8 @@ INSERT INTO feed (description, link, feed_link, updated_parsed, guid) values (?,
 
 type InsertFeedParams struct {
 	Description   string
-	Link          interface{}
-	FeedLink      interface{}
+	Link          sql.NullString
+	FeedLink      string
 	UpdatedParsed sql.NullString
 	Guid          string
 }

@@ -12,8 +12,8 @@ type Feed struct {
 	ID            int64
 	Title         string
 	Description   string
-	Link          interface{}
-	FeedLink      interface{}
+	Link          sql.NullString
+	FeedLink      string
 	UpdatedParsed sql.NullString
 	ImageID       sql.NullInt64
 	Guid          string
@@ -27,13 +27,13 @@ type Image struct {
 
 type Item struct {
 	ID              int64
-	Title           interface{}
-	Description     interface{}
-	Link            interface{}
-	FeedLink        interface{}
-	Updated         interface{}
+	Title           string
+	Description     string
+	Link            sql.NullString
+	FeedLink        string
+	Updated         string
 	UpdatedParsed   sql.NullString
-	Published       interface{}
+	Published       string
 	PublishedParsed sql.NullString
 	ImageID         sql.NullInt64
 	Guid            string
